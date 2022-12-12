@@ -223,6 +223,7 @@ export class ChatGPTPoole {
       const response = await conversation.sendMessage(message);
       return response;
     } catch (err: any) {
+      console.log(err);
       if (err.message.includes("ChatGPT failed to refresh auth token")) {
         // If refresh token failed, we will remove the conversation from pool
         await this.resetAccount(account);
